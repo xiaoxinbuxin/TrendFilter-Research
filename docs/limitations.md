@@ -20,6 +20,10 @@ A swing-magnitude rank depends on the available historical sample and the segmen
 
 The public example contains hand-authored prices and event timestamps. It audits timestamp availability and target-window eligibility without generating R3 signals. The small counts and deliberately constructed boundary cases are teaching devices, not empirical estimates or evidence of model quality.
 
+## Selected screenshots and follow-up observation
+
+[Cross-market screenshots](../figures/real_examples.md) support discussion of visible behavior. Follow-up observation can expose weaknesses or motivate further tests, but selected charts cannot establish that rules were fixed before observation or exclude overfitting. No dated frozen-rule protocol and complete prospective event log accompany this gallery.
+
 ## Generalization and execution
 
 No R3 cross-market predictive study or cost-adjusted trading evaluation is provided here. A plausible visual display cannot establish either. Shared development history with WaveFilter also does not transfer that project's evidence to Trend Filter.
