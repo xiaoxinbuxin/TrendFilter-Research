@@ -1,0 +1,6 @@
+event_id,anchor_bar,confirmed_bar,confirmation_delay_bars,target_start_bar,target_end_bar,status
+A,8,12,4,13,20,development
+B,24,28,4,29,36,development
+C,40,51,11,52,59,purged_at_split
+D,53,59,6,60,67,holdout
+E,72,76,4,77,84,excluded_incomplete_future
