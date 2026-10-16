@@ -19,6 +19,7 @@ The project concerns how to organize and communicate market context directly on 
 | [Executed timing demo](results/public_timing_results.md) | Event availability, complete future windows, boundary exclusions, and a chart | Hand-authored synthetic example; no R3 signal generation |
 | [Architecture](docs/architecture.md) and [visual guide](docs/visual_guide.md) | Public component roles and how to read their timing | Source-level documentation, not a full implementation audit |
 | [Development story](docs/development_story.md) | Why the main-chart work was separated and what R3 represents | Confirmed project background, not an invented release history |
+| [Current cross-market examples](#current-cross-market-examples) | Four author-supplied Trend R3 charts and interpretation notes | Qualitative observation; not a prospective validation study |
 | [Evidence status](results/evidence_status.md) | Which materials are public and which validations remain unavailable | Public-demo checks are separate from R3 validation |
 
 ## Public timing demonstration
@@ -70,9 +71,41 @@ The [methodology](docs/methodology.md) begins with version and feed identificati
 
 The [evaluation scope](docs/evaluation_scope.md) describes those requirements; it is not a list of completed R3 tests.
 
+## Current Cross-Market Examples
+
+These author-supplied TradingView screenshots illustrate the selected Trend R3 milestone across four markets. They show visible chart behavior, not predictive accuracy, profitability, or statistical validity across markets. Percentages attached to labels are descriptive swing-magnitude ranks, not win rates or reversal probabilities. Historical swing anchors may be drawn only after later confirmation; static screenshots do not verify real-time availability.
+
+The author uses follow-up chart observation to examine whether Pullback and Bounce labels remain interpretable as new price action develops, including across different markets. This is a qualitative check on behavior beyond the examples considered during development, not a claim that historical rule fitting or overfitting has been ruled out. The public record does not establish a frozen-rule, prospectively logged evaluation; selected screenshots cannot substitute for that test.
+
+### BTCUSD · CRYPTO · 1H
+
+![BTCUSD on CRYPTO, 1-hour Trend R3 main chart](figures/btcusd_crypto_1h_trendr3.png)
+
+Support and pressure bands alternate across a decline, recovery, and renewed selling. Pullback, Bounce, and Range Long labels appear alongside the swing skeleton, with some counter-trend labels shown more faintly.
+
+### QQQ · NASDAQ ETF · 4H
+
+![QQQ on NASDAQ, 4-hour Trend R3 main chart](figures/qqq_nasdaq_4h_trendr3.png)
+
+The ETF example shows changing band states across successive advances and declines. Pullback and Bounce labels carry differing swing percentiles and visual emphasis within the same chart.
+
+### NVDA · NASDAQ · 4H
+
+![NVDA on NASDAQ, 4-hour Trend R3 main chart](figures/nvda_nasdaq_4h_trendr3.png)
+
+The individual-equity example combines an uneven advance with intervening pullbacks and changing band states. Contextual labels, the swing skeleton, and recent moving-average references provide distinct layers of price-chart context.
+
+### TVC Gold · 1H
+
+![TVC Gold, 1-hour Trend R3 main chart](figures/gold_tvc_1h_trendr3.png)
+
+This TVC Gold example shows pressure bands during a decline and support bands after a subsequent rise. Trend Short, Trend Long, Pullback, and Bounce labels illustrate how local events receive different names within the displayed trend context.
+
+See [figure notes and provenance](figures/real_examples.md) for the image inventory and observation limits.
+
 ## Evidence status
 
-The component descriptions have been checked against the author-provided Trend R3 source. This is a source-level documentation check, not a completed implementation audit. The public repository includes an executed synthetic event-log example and checks for that example. It does not include a reproducible R3 evaluation, native TradingView compilation or replay evidence, or R3 performance statistics. No R3 passing-test count, prediction-accuracy claim, or trading return is asserted here.
+The component descriptions have been checked against the author-provided Trend R3 source. This is a source-level documentation check, not a completed implementation audit. The public repository includes selected author-supplied chart screenshots, an executed synthetic event-log example, and checks for that example. It does not include a reproducible R3 evaluation, native TradingView compilation or replay evidence, or R3 performance statistics. No R3 passing-test count, prediction-accuracy claim, or trading return is asserted here.
 
 Screenshots or numerical results from other versions, and the synthetic demonstration in WaveFilter-Research, do not establish the behavior or effectiveness of Trend R3. Any future evidence should identify its version, data, evaluation procedure, and limitations.
 
@@ -84,7 +117,7 @@ Screenshots or numerical results from other versions, and the synthetic demonstr
 | [notebooks/](notebooks/README.md) | Executed public notebook and reproduction instructions |
 | [demo/](demo/timing_demo.py) | Standalone synthetic event-log example |
 | [results/](results/README.md) | Generated synthetic results and R3 evidence status |
-| [figures/](figures/README.md) | Conceptual architecture and synthetic timing chart |
+| [figures/](figures/README.md) | Main-chart screenshots, conceptual architecture, and synthetic timing chart |
 | [tests/](tests/test_timing_demo.py) | Regression checks for the public example |
 
 ## Scope
