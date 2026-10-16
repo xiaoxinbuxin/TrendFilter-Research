@@ -1,0 +1,60 @@
+name: Public timing demo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install public-demo dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check synthetic event timing
+        run: python -m unittest discover -s tests -v
+      - name: Save expected artifacts
+        run: |
+          mkdir -p /tmp/trend-expected
+          cp results/synthetic_event_ledger.csv results/public_timing_results.md /tmp/trend-expected/
+      - name: Execute the public notebook
+        env:
+          MPLBACKEND: Agg
+        run: |
+          mkdir -p /tmp/trend-notebook
+          jupyter nbconvert --to notebook --execute notebooks/public_timing_demo.ipynb --output public_timing_demo.executed.ipynb --output-dir /tmp/trend-notebook --ExecutePreprocessor.timeout=120
+      - name: Verify saved results and notebook outputs
+        run: |
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          for name in ('synthetic_event_ledger.csv', 'public_timing_results.md'):
+              assert (Path('results') / name).read_text() == (Path('/tmp/trend-expected') / name).read_text(), name
+          notebook = json.loads(Path('/tmp/trend-notebook/public_timing_demo.executed.ipynb').read_text())
+          code = [c for c in notebook['cells'] if c['cell_type'] == 'code']
+          assert all(c['execution_count'] is not None for c in code)
+          outputs = [o for c in code for o in c.get('outputs', [])]
+          assert not any(o['output_type'] == 'error' for o in outputs)
+          assert any('image/png' in o.get('data', {}) for o in outputs)
+          print('Synthetic ledger and result text reproduced; chart saved in notebook.')
+          PYCODE
+      - name: Check public file boundaries
+        run: |
+          python - <<'PYCODE'
+          import subprocess
+          from pathlib import Path
+          paths = subprocess.check_output(['git', 'ls-files'], text=True).splitlines()
+          blocked = [p for p in paths if Path(p).suffix in {'.pine', '.parquet', '.pickle', '.pkl', '.zip'} or {'private', 'raw_data', 'AutoLab'}.intersection(Path(p).parts)]
+          assert not blocked, blocked
+          print('No prohibited source or data file types in the public tree.')
+          PYCODE

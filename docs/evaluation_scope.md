@@ -20,4 +20,4 @@ Swing statistics summarize a specified historical sample. Their interpretation d
 
 A separate predictive study would need an explicit target, baseline, event timing, sample and event counts, time-ordered evaluation boundaries, and uncertainty analysis. Previously inspected or repeatedly used data should not be presented as a fresh sealed holdout.
 
-Trading-performance claims would additionally require explicit execution and cost assumptions. No such performance claim is made in this draft.
+Trading-performance claims would additionally require explicit execution and cost assumptions. No such performance claim is made in this repository.
