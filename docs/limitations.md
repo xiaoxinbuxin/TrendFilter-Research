@@ -26,4 +26,4 @@ The public example contains hand-authored prices and event timestamps. It audits
 
 ## Generalization and execution
 
-No R3 cross-market predictive study or cost-adjusted trading evaluation is provided here. A plausible visual display cannot establish either. Shared development history with WaveFilter also does not transfer that project's evidence to Trend Filter.
+No R3 cross-market predictive study or cost-adjusted trading evaluation is provided here. A plausible visual display cannot establish either. Evidence reported for WaveFilter does not validate Trend Filter.
