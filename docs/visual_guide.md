@@ -16,7 +16,7 @@ A potential top or bottom is an interpretation of current conditions, not a guar
 
 ## Swing percentile
 
-The optional percentage describes normalized swing magnitude relative to stored same-direction historical swings. The source uses a sample-availability gate before displaying the percentile.
+The optional percentage describes normalized swing magnitude relative to stored same-direction historical swings. The source uses a sample-availability gate before displaying the percentile. This is a statistical description of observed amplitude: it does not estimate the distance to a future peak or trough.
 
 The percentage is not the probability that the next move reverses, not a trade win rate, and not the percentage of comparable swings exceeded in elapsed time. When no percentage is displayed, the absence is not evidence of a low reversal probability.
 
@@ -32,4 +32,4 @@ Moving-average lines provide recent price context. They can respond while the ba
 
 ## Relationship to other indicators
 
-Trend R3 is a main-chart project separated from the author's 波段过滤器 (WaveFilter) development. A screenshot containing both projects must identify which chart region belongs to each. Neither a visual match nor simultaneous signals establish independent statistical evidence.
+Trend R3 displays context directly on the price chart; WaveFilter provides a sub-chart representation. A screenshot containing both projects must identify which chart region belongs to each. Neither a visual match nor simultaneous signals establish independent statistical evidence.

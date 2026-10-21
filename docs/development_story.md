@@ -1,22 +1,20 @@
 # Development Story
 
-## Why a separate main-chart project
+## Research question and design rationale
 
-Trend Filter originated within the author's 波段过滤器 (WaveFilter) development. The author separated the main-chart work when adding more functionality, so the sub-chart wave representation would not have to carry every price-chart feature.
+How can a price chart communicate both trend context and the relative magnitude of a move? Trend Filter addresses this question through trend-state bands, contextual labels, a swing skeleton, swing percentiles, and recent moving-average references.
 
-This origin matters when presenting the projects together: they are related parts of one development history, with different chart roles. Creating two repositories does not create two independent bodies of validation evidence.
+Momentum and price displacement describe different aspects of a move. The magnitude component measures observed swings and compares their normalized sizes with a historical sample of same-direction swings. It supplies statistical context for reading the chart, rather than a direct estimate of remaining upside or downside.
 
-## What the separation makes easier to describe
+## Distinct roles within the display
 
-The sub-chart project represents normalized wave and market-state information. The main-chart project places context alongside price: trend-state bands, contextual labels, a swing skeleton, swing percentiles, and recent moving-average references.
-
-Separating their documentation makes it possible to ask different questions of each display. A state band describes context, a label identifies a condition at a particular time, and a swing skeleton describes geometry that may only become confirmed later. Those roles should not be treated as interchangeable predictions.
+A state band describes context, a label identifies a condition at a particular time, and a swing skeleton describes geometry that may only become confirmed later. A percentile summarizes the relative magnitude of the observed swing. These roles should not be treated as interchangeable predictions.
 
 ## The current R3 milestone
 
-The author selected 趋势 R3 as the final version for this portfolio and supplied its source for documentation review. The [visual guide](visual_guide.md) records the roles and timing visible in that source without disclosing formulas or calibrated settings.
+The author selected Trend R3 as the final version for this portfolio and supplied its source for documentation review. The [visual guide](visual_guide.md) records the roles and timing visible in that source without disclosing formulas or calibrated settings.
 
-The public account does not infer a release chronology from filenames or import test claims from earlier versions. It records the confirmed origin, the selected milestone, and the currently inspectable documentation.
+The public account does not infer a release chronology from filenames or import test claims from earlier versions. It records the research scope, the selected milestone, and the currently inspectable documentation.
 
 ## A central evaluation question
 

@@ -1,12 +1,12 @@
-# 趋势过滤器 · Trend Filter Research
+# Trend Filter Research
 
 [![Public timing demo](https://github.com/xiaoxinbuxin/TrendFilter-Research/actions/workflows/public-demo.yml/badge.svg)](https://github.com/xiaoxinbuxin/TrendFilter-Research/actions/workflows/public-demo.yml)
 
 **Research on price-chart context, swing interpretation, and confirmation-aware evaluation.**
 
-Trend Filter became a separate project when additional price-chart functionality was split out of the WaveFilter development process. Keeping the two projects separate allows the main-chart tools and the sub-chart wave representation to develop around their respective roles.
+Trend Filter is a main-chart research project that combines trend context with statistical characterization of price-swing magnitude. It measures observed swings and compares their normalized magnitudes with historical swings in the same direction.
 
-The selected project milestone is **趋势 R3 (Trend R3)**.
+The selected project milestone is **Trend R3**.
 
 ## Research focus
 
@@ -18,7 +18,7 @@ The project concerns how to organize and communicate market context directly on 
 |---|---|---|
 | [Executed timing demo](results/public_timing_results.md) | Event availability, complete future windows, boundary exclusions, and a chart | Hand-authored synthetic example; no R3 signal generation |
 | [Architecture](docs/architecture.md) and [visual guide](docs/visual_guide.md) | Public component roles and how to read their timing | Source-level documentation, not a full implementation audit |
-| [Development story](docs/development_story.md) | Why the main-chart work was separated and what R3 represents | Confirmed project background, not an invented release history |
+| [Development story](docs/development_story.md) | Research questions, design rationale, and the R3 milestone | Documented design scope; no invented release history |
 | [Current cross-market examples](#current-cross-market-examples) | Four author-supplied Trend R3 charts and interpretation notes | Qualitative observation; not a prospective validation study |
 | [Evidence status](results/evidence_status.md) | Which materials are public and which validations remain unavailable | Public-demo checks are separate from R3 validation |
 
@@ -34,18 +34,24 @@ This example audits supplied timestamps rather than detecting turning points. It
 
 ## Development path
 
-The project began within 波段过滤器 (WaveFilter). Additional price-chart functionality motivated a separate main-chart project, and the author selected **趋势 R3** as the milestone documented here.
+The project investigates how trend context and statistical descriptions of swing magnitude can be presented together on a price chart. The selected milestone is **Trend R3**.
 
-The split gives the main-chart work its own questions: how to present trend context, how to distinguish developing structure from confirmed history, and how to interpret swing statistics without turning descriptive ranks into forecasts. The [development story](docs/development_story.md) explains this scope; the [project background](docs/project_background.md) records its relationship to WaveFilter.
+The main-chart work addresses three questions: how to present trend context, how to distinguish developing structure from confirmed history, and how to interpret swing statistics without turning descriptive ranks into forecasts. The [development story](docs/development_story.md) explains this scope; the [project background](docs/project_background.md) describes the research scope.
 
-## Project relationship
+## Related project
 
 | Project | Chart role | Public record |
 |---|---|---|
-| **趋势过滤器 / Trend Filter** | Main-chart indicator | This repository: project background, research scope, and evidence boundaries |
-| **波段过滤器 / WaveFilter** | Sub-chart wave and market-state representation | [WaveFilter-Research](https://github.com/xiaoxinbuxin/WaveFilter-Research): development history, selected screenshots, and a separate synthetic evaluation demo |
+| **Trend Filter** | Main-chart indicator | This repository: project background, research scope, and evidence boundaries |
+| **WaveFilter** | Sub-chart wave and market-state representation | [WaveFilter-Research](https://github.com/xiaoxinbuxin/WaveFilter-Research): development history, selected screenshots, and a separate synthetic evaluation demo |
 
-Trend Filter originated within the author's WaveFilter development work and was separated to accommodate additional functionality. The two repositories document related parts of that development history; they should not be counted as independent validation of the same claims.
+The projects address different chart roles. Evidence reported for either project does not validate the other, and agreement between their displays is not independent statistical validation.
+
+## Statistical characterization of swing magnitude
+
+Trend Filter measures the magnitude of an observed upward or downward swing and places its normalized size within the historical distribution of same-direction swings. This provides statistical context for interpreting the current move alongside trend-state bands and contextual labels.
+
+Measuring momentum and measuring price displacement answer different questions. The displayed swing percentile describes how large the observed move is relative to its reference sample; it does not calculate how far price will rise next or how much upside remains. Estimating future movement would require a separately defined and validated forecasting study.
 
 ## Visible components
 
